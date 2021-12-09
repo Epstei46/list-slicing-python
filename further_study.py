@@ -181,8 +181,13 @@ def custom_reverse(input_list):
         True
 
     """
-
-    pass
+    # below copied from solutions file. I knew something was working peculiar here, never would have gotten this with guess and check, not being able to see te outputs.
+    swap_number = custom_len(input_list) // 2
+    for i in range(swap_number):
+        current_n = input_list[i]
+        current_neg_n = input_list[(i + 1) * -1]
+        input_list[i] = current_neg_n
+        input_list[(i + 1) * -1] = current_n
 
 
 def custom_contains(input_list, value):
@@ -201,8 +206,10 @@ def custom_contains(input_list, value):
         True
 
     """
-
-    return None
+    for x in input_list:
+        if x == value:
+            return True
+    return False
 
 
 def custom_equality(some_list, another_list):
@@ -220,8 +227,13 @@ def custom_equality(some_list, another_list):
         False
 
     """
-
-    return None
+    if custom_len(some_list) != custom_len(another_list):
+        return False
+    else:
+        for index in range(custom_len(some_list)):
+            if some_list[index] != another_list[index]:
+                return False
+        return True
 
 
 # This is the part were we actually run the doctests.
